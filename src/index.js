@@ -6,6 +6,10 @@ const onClickAdd = () => {
     const li = document.createElement("li");
     li.className = "list-row";
 
+    //div生成
+    const div = document.createElement("div");
+    div.innerHTML = `<p>${inputText}</p>`;
+
     //button(完了)タグの作成
     const completeButton = document.createElement("button");
     completeButton.innerText = "完了";
@@ -17,12 +21,10 @@ const onClickAdd = () => {
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "削除";
     deleteButton.addEventListener("click", () => {
-        alert("削除")
+        //押された削除ボタンの親タグ(div)を未完了リストから削除
+        const deleteTarget = div.parentNode;
+        document.getElementById("imcomplete-list").removeChild(deleteTarget);
     })
-
-    //div生成
-    const div = document.createElement("div");
-    div.innerHTML = `<p>${inputText}</p>`;
 
     //liタグの子要素に各要素を設定
     li.appendChild(div);
