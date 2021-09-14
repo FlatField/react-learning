@@ -23,7 +23,6 @@ const onClickAdd = () => {
 
         //完了リストに追加する要素
         const addComplete = completeButton.parentNode.parentNode;
-        console.log(addComplete);
         
         //TODO内容テキストを取得
         const todoTextAll = addComplete.children[0];
@@ -38,6 +37,9 @@ const onClickAdd = () => {
         //buttonタグ生成
         const backButton = document.createElement("button");
         backButton.innerText = "戻す";
+        backButton.addEventListener("click", () => {
+            alert(backButton.innerText);
+        })
 
         //liタグの子要素に各要素を設定
         addComplete.appendChild(compDiv);
