@@ -2,14 +2,22 @@ import React, { useState } from 'react'
 import './styles.css';
 
 export function App() {
+  const [todoText, setTodoText] = useState('');
   const [incompleteTodos, setIncompleteTodos] = useState(['あああああ','いええええ']);
   const [completeTodos, setCompleteTodos] = useState(['ううううう', 'えええええ']);
+  const onChangeTodoText = (e) => setTodoText( e.target.value );
+  const onClickAdd = () => {
+    if(todoText === "") return;
+    const newTodos = [...incompleteTodos, todoText];
+    setIncompleteTodos(newTodos);
+    setTodoText("");
+  };
   return (
     <>
       <section className="input-area">
         <div>
-          <input placeholder="TODOを入力" type="text" />
-          <button>追加</button>
+          <input placeholder="TODOを入力" type="text" value={todoText} onChange={onChangeTodoText} />
+          <button onClick={onClickAdd}>追加</button>
         </div>
       </section>
 
@@ -36,7 +44,7 @@ export function App() {
           <ul>
             {completeTodos.map((todo) => {
               return (
-                <li key="{todo}" className="list-row">
+                <li key={todo} className="list-row">
                   <p>{todo}</p>
                   <button>戻す</button>
                 </li>
