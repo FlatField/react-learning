@@ -4,9 +4,9 @@ import './styles.css';
 export function App() {
   const [todoText, setTodoText] = useState('');
 
-  const [incompleteTodos, setIncompleteTodos] = useState(['あああああ','いええええ']);
+  const [incompleteTodos, setIncompleteTodos] = useState(['あああああ','いいいい']);
 
-  const [completeTodos, setCompleteTodos] = useState(['ううううう', 'えええええ']);
+  const [completeTodos, setCompleteTodos] = useState(['わわわわわ', 'んんんんん']);
 
   const onChangeTodoText = (e) => setTodoText( e.target.value );
 
@@ -24,12 +24,27 @@ export function App() {
   };
 
   const onClickComplete = (index) => {
+    // 未完了のリストから削除
     const newIncoｍpleteTodos = [...incompleteTodos];
     newIncoｍpleteTodos.splice(index, 1);
-    // 制作途中 完了へデータの移動が出来ないため後ほどデバッグします
+    setIncompleteTodos(newIncoｍpleteTodos);
 
+    //完了リストへ移動
     const newCoｍpleteTodos = [...completeTodos, incompleteTodos[index]];
-    setCompleteTodos.splice(newCoｍpleteTodos);
+    setCompleteTodos(newCoｍpleteTodos);
+  };
+
+  const onClickReturnTodos = (index) => {
+    //未完了リストへ戻す処理
+    const returnTodos = [...incompleteTodos, completeTodos[index]];
+
+    // 完了のリストから削除
+    const returnDeleteTodos = [...completeTodos];
+    returnDeleteTodos.splice(index, 1);
+
+    //上記それぞれの処理をデータにセットする
+    setIncompleteTodos(returnTodos);
+    setCompleteTodos(returnDeleteTodos);
   };
 
   return (
@@ -62,11 +77,11 @@ export function App() {
         <div>
           <h3>完了したTODO</h3>
           <ul>
-            {completeTodos.map((todo) => {
+            {completeTodos.map((todo, index) => {
               return (
                 <li key={todo} className="list-row">
                   <p>{todo}</p>
-                  <button>戻す</button>
+                  <button onClick={() => onClickReturnTodos(index)}>戻す</button>
                 </li>
               )
             })}
