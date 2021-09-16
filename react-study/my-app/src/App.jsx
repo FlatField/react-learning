@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ColorfullMessage from './components/ColorfullMessage'
+import { ColorfullMessage } from './components/ColorfullMessage'
 
 
 const App = () => {

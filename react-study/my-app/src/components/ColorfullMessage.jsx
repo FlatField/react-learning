@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ColorFullMessage = (props) => {
+export const ColorFullMessage = (props) => {
     const { color, children} = props;
     const contentStyle = {
         color,
@@ -12,4 +12,4 @@ const ColorFullMessage = (props) => {
     );
 };
 
-export default ColorFullMessage;
+// export default ColorFullMessage;
