@@ -1,0 +1,63 @@
+body {
+    font-family: sans-serif;
+  }
+
+section {
+    margin: auto;
+}
+section > div {
+    width: 90%;
+    margin: auto;
+}
+h3 {
+    text-align: center;
+}
+p {
+    display: inline-block;
+    margin-right: 4px;
+}
+input {
+    border: none;
+    background-color: #fefefe;
+    border-radius: 4px;
+    height: 20px;
+    margin-right: 6px;
+}
+button {
+    background-color: azure;
+    border: none;
+    border-radius: 4px;
+    box-shadow: cadetblue 0px 1px 1px;
+    height: 24px;
+}
+button:hover {
+    cursor: pointer;
+}
+button:active {
+    box-shadow: none;
+    background-color: rgb(234, 247, 247);
+}
+button:nth-of-type(2) {
+    margin-left: 5px;
+}
+  
+.input-area {
+  background-color: #c1ffff;
+  width: 400px;
+  height: 30px;
+  padding: 8px;
+}
+
+.incomplete-area {
+  background-color: #c6ffe2;
+  width: 400px;
+  min-height: 200px;
+  padding: 8px;
+}
+
+.complete-area {
+  background-color: #ffffe0;
+  width: 400px;
+  min-height: 200px;
+  padding: 8px;
+}
