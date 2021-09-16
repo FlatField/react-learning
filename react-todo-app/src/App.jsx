@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './styles.css';
 
-function App() {
+export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <section>
+        <div>
+          <input placeholder="TODOを入力" type="text" />
+          <button>追加</button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <p>未完了のTODO</p>
+          <ul>
+            <li>あああああ</li>
+            <button>完了</button>
+            <button>削除</button>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <p>完了したTODO</p>
+          <ul>
+            <li>いいいいい</li>
+            <button>戻す</button>
+          </ul>
+        </div>
+      </section>
+    </>
   );
 }
-
-export default App;
