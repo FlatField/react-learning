@@ -8,9 +8,9 @@ import { CompleteTodos } from './components/CompleteTodos';
 export function App() {
   const [todoText, setTodoText] = useState('');
 
-  const [incompleteTodos, setIncompleteTodos] = useState(['あああああ','いいいい']);
+  const [incompleteTodos, setIncompleteTodos] = useState([]);
 
-  const [completeTodos, setCompleteTodos] = useState(['わわわわわ', 'んんんんん']);
+  const [completeTodos, setCompleteTodos] = useState([]);
 
   const onChangeTodoText = (e) => setTodoText( e.target.value );
  
@@ -56,7 +56,14 @@ export function App() {
       <InputTodo todoText={todoText}
         onChange={onChangeTodoText}
         onClick={onClickAdd}
+        disabled={incompleteTodos.length >= 5}
       /> 
+      {incompleteTodos.length >= 5  &&
+        <p style={{ color:'red'}}>
+        登録できるtodoの上限5までです。<br/>
+        タスクを消化してください
+      </p>
+      }
 
       <InCompleteTodo
         incompleteTodos={incompleteTodos}
